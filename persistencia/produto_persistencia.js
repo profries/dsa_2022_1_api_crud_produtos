@@ -28,8 +28,13 @@ function inserir(produto, callback) {
 
     cliente.query(sql, values, 
         function (err, res){
-            console.log(err);
-            callback(erroBD, res.rows[0]);
+            if(err){
+                console.log(err);
+                callback(erroBD, undefined);
+            }
+            else {
+                callback(undefined, res.rows[0]);
+            }
             cliente.end();
         })
 

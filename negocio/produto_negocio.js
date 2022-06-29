@@ -51,6 +51,19 @@ function atualizar(id, produto, callback) {
 
 }
 
+function deletar(id, callback) {
+    if(!id || isNaN(id)){
+        const erro = { 
+            mensagem: "Identificador Invalido!",
+            numero: 400
+        }
+        callback(erro, undefined);
+    }
+    else {
+        produtoRepositorio.deletar(id,callback);
+    }
+}
+
 module.exports = {
-    inserir, listar, buscarPorId, atualizar
+    inserir, listar, buscarPorId, atualizar, deletar
 }
