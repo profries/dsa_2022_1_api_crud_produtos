@@ -47,7 +47,7 @@ function listar(callback) {
     const cliente = new Client(conexao);
     cliente.connect();
     
-    const sql = "SELECT * FROM produtos";
+    const sql = "SELECT * FROM produtos ORDER BY id";
     cliente.query(sql, 
         function (err, res) {
             if(err) {
